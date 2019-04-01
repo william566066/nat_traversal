@@ -1,5 +1,6 @@
 #include <arpa/inet.h>
 #include <errno.h>
+#include <stdio.h>
 #define DEFAULT_SERVER_PORT 5555
 
 int main(int argc, char** argv)
@@ -8,7 +9,7 @@ int main(int argc, char** argv)
     if(fd==-1)
     {
         printf("create socket failed\n");
-        return;
+        return -1;
     }
 
     struct sockaddr_in server_addr;
@@ -20,7 +21,7 @@ int main(int argc, char** argv)
     if(bindret==-1)
     {
         printf("bind failed error:%d\n", errno);
-        return;
+        return -1;
     }
 
     struct sockaddr_in clientaddr[2]={0};
@@ -39,6 +40,6 @@ int main(int argc, char** argv)
             printf("recvfrom failed error:%d\n", errno);
             break;
         }
-        printf("client come: %s:%zd\n", inet_ntoa(clientaddr[clients].sin_addr), ntohs(clientaddr[clients].sin_port));
+        printf("client come: %s:%d\n", inet_ntoa(clientaddr[clients].sin_addr), ntohs(clientaddr[clients].sin_port));
     }
 }
