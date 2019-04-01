@@ -74,7 +74,6 @@ int main(int argc, char** argv)
 
     if (-1 == sendto(s, buf, 0x10, 0, (struct sockaddr *)&servAddr, sizeof(servAddr))) {
             // sendto() barely failed
-            free(buf);
             return -1;
         }
     
