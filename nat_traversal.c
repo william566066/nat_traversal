@@ -373,10 +373,10 @@ int connect_to_peer(client* cli, uint32_t peer_id) {
             // todo
             break;
         case RestricPortNAT:
-            // todo 
+            // 对方是port型，发送到固定端口，不用随机 
             break;
         case SymmetricNAT:
-            if (cli->type == SymmetricNAT) {
+            if (cli->type == SymmetricNAT) {//双方都是对称型
                 connect_to_symmetric_nat(cli, peer_id, peer);
             }
             else {

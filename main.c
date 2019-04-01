@@ -9,7 +9,7 @@
 
 #include "nat_traversal.h"
 
-#define DEFAULT_SERVER_PORT 9988
+#define DEFAULT_SERVER_PORT 8002
 #define MSG_BUF_SIZE 512
 
 // use public stun servers to detect port allocation rule

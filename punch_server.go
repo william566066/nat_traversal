@@ -67,7 +67,7 @@ func handleConn(c net.Conn) {
 				continue
 			}
 
-			fmt.Println("peer enrolled, addr: ", string(peer.Ip[:]), peer.Port, peer.Nat_type)
+			fmt.Println("peer enrolled, addr: ", string(peer.Ip[:]), peer.Port, peer.Nat_type,c.RemoteAddr())
 
 			m.Lock()
 			seq++
